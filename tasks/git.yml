@@ -3,7 +3,6 @@
     git:
       repo: "{{ ror_git }}"
       dest: /tmp/ror.zip
-    become: yes
     tags: skip_ansible_lint
 
   - name: Install plugin
@@ -11,7 +10,6 @@
       command: /usr/share/elasticsearch/bin/elasticsearch-plugin install file:///tmp/ror.zip
       responses:
         '[y/N]': y
-    become: yes
 
   - name: Copy config
     template: src=readonlyrest.yml dest=/etc/elasticsearch
