@@ -1,7 +1,7 @@
 ---
-  - name: Clone readonlyrest
-    git:
-      repo: "{{ ror_git }}"
+  - name: Download readonlyrest
+    get_url:
+      url: "{{ ror_git }}"
       dest: /tmp/ror.zip
     tags: skip_ansible_lint
 
