@@ -1,7 +1,8 @@
+---
 readonlyrest:
   access_control_rules:
 
   - name: "Require HTTP Basic Auth"
     type: allow
-    auth_key: {{ ror_user }}:{{ ror_pass }}
+    auth_key: "{{ ror_user }}:{{ ror_pass }}"
     tags: skip_ansible_lint
