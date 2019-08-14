@@ -4,6 +4,7 @@
       repo: "{{ ror_git }}"
       dest: /tmp/ror.zip
     become: yes
+    tags: skip_ansible_lint
 
   - name: Install plugin
     expect:
