@@ -13,6 +13,6 @@
     become: yes
 
   - name: Add readonlyrest users and copy config
-       template:
-         src: readonlyrest.yml.j2
-         dest: /etc/elasticsearch/readonlyrest.yml
+    template:
+      src: readonlyrest.yml.j2
+      dest: /etc/elasticsearch/readonlyrest.yml
