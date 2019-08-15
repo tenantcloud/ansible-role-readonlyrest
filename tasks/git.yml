@@ -12,6 +12,7 @@
         '[y/N]': y
     become: yes
 
-  - name: Copy config
-    template: src=readonlyrest.yml dest=/etc/elasticsearch
-    become: yes
+  - name: Add readonlyrest users and copy config
+       template:
+         src: readonlyrest.yml.j2
+         dest: /etc/elasticsearch/readonlyrest.yml

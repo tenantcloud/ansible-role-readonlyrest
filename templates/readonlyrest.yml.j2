@@ -1,0 +1,9 @@
+---
+readonlyrest:
+  access_control_rules:
+{% for var in creds %}
+
+  - name: "Require HTTP Basic Auth"
+      type: allow
+      auth_key: "{{ var.username }}:{{ var.password }}"
+{% endfor %}
