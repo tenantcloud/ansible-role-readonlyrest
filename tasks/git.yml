@@ -16,3 +16,11 @@
     template:
       src: readonlyrest.yml.j2
       dest: /etc/elasticsearch/readonlyrest.yml
+
+  - name: Restart elasticsearch
+    service: elasticsearch
+    state: restarted
+
+  - name: Restart kibana
+    service: kibana
+    state: restarted
