@@ -1,38 +1,19 @@
-Role Name
+Ansible role for install and setup readonlyrest plugin for elasticsearch
 =========
 
-A brief description of the role goes here.
+ReadOnlyRest ELK role. This role include in default terraform scenario for auto-deploy new server.
+Plugin activate access to ELK Stack only with login/password.
+Don't forget disable X-Pack's Security Module from both elasticsearch.yml and kibana.yml.
+To download plugin visit https://readonlyrest.com/download/ and select in Product > Elasticsearch plugin (Free), chose ELK Stack version and enter email.
+Place downloaded plugin on avaliable url, enter this url in variable url: "{{ ror_git }}" in you-playybok-name.yml:
 
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
 -------
 
-BSD
+For manual installation this role:
 
-Author Information
-------------------
+```ansible-galaxy install tenantcloud.ansible_role_readonlyrest```
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Add this role name to playbook and run:
+
+```cd /tmp/.ansible/ && ansible-playbook playbook-name.yml```
+
