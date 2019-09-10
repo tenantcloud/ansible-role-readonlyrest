@@ -17,3 +17,20 @@ Add this role name to playbook and run:
 
 ```cd /tmp/.ansible/ && ansible-playbook playbook-name.yml```
 
+-------
+
+Variable included in this role:
+
+{{ ror_git }} - url for download readonlyrest archive from S3 bucket
+
+-------
+
+Sample playbook-name.yml
+
+- hosts: localhost
+  vars:
+    ror_git: https://s3.amazonaws.com/software/readonlyrest-1.18.4_es6.8.2.zip
+  become: yes
+  roles:
+    - ansible-role-readonlyrest
+
