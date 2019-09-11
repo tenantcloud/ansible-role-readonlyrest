@@ -31,6 +31,7 @@ Dependencies
 Example Playbook
 ----------------
 
+```yaml
   - hosts: localhost
     vars:
       ea_dir: elastalert
@@ -39,6 +40,7 @@ Example Playbook
     become: yes
     roles:
       - tenantcloud.ansible_role_readonlyrest
+```
 
 License
 -------
