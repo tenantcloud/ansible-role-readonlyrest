@@ -7,3 +7,9 @@ readonlyrest:
     type: allow
     auth_key: "{{ var.username }}:{{ var.password }}"
 {% endfor %}
+
+  - name: "Require limited HTTP Basic Auth for {{ creds[2].username }}"
+    auth_key: "{{ creds[2].username }}:{{ creds[2].password }}""
+    type: allow
+    kibana_access: rw
+    indices: [".kibana*","horizon-*","laravel-*","metricbeat-*","mysql-*","nginx-*","syslog-*","websocket-*"]
