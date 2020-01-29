@@ -1,15 +1,17 @@
 ---
 readonlyrest:
   access_control_rules:
-{% for var in creds %}
 
-  - name: "Require HTTP Basic Auth for {{ var.username }}"
+  - name: "Require Basic Auth for {{ creds[0].username }}"
+    auth_key: "{{ creds[0].username }}:{{ creds[0].password }}"
     type: allow
-    auth_key: "{{ var.username }}:{{ var.password }}"
-{% endfor %}
+
+  - name: "Require Basic Auth for {{ creds[1].username }}"
+    auth_key: "{{ creds[1].username }}:{{ creds[1].password }}"
+    type: allow
 
   - name: "Require limited HTTP Basic Auth for {{ creds[2].username }}"
-    auth_key: "{{ creds[2].username }}:{{ creds[2].password }}""
+    auth_key: "{{ creds[2].username }}:{{ creds[2].password }}"
     type: allow
     kibana_access: ro
     indices: [".kibana*","horizon-*","laravel-*","metricbeat-*","mysql-*","nginx-*","syslog-*","websocket-*"]
