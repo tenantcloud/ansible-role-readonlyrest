@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: readonlyrest
   author: Igor Bronovskyi
   description: Install Filebeat on testing servers
   company: "TenantCloud LLC"
