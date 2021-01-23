@@ -1,28 +1,29 @@
 ---
-  - name: Download readonlyrest
-    get_url:
-      url: "{{ ror_git }}"
-      dest: /tmp/ror.zip
-    tags: skip_ansible_lint
+- name: Download readonlyrest
+  get_url:
+    url: "{{ ror_git }}"
+    dest: /tmp/ror.zip
 
-  - name: Install plugin
-    expect:
-      command: /usr/share/elasticsearch/bin/elasticsearch-plugin install file:///tmp/ror.zip
-      responses:
-        '[y/N]': y
-    become: yes
+- name: Install plugin
+  expect:
+    command: "/usr/share/elasticsearch/bin/\
+      elasticsearch-plugin install file:///tmp/ror.zip"
+    responses:
+      '[y/N]': y
+  become: true
 
-  - name: Add readonlyrest users and copy config
-    template:
-      src: readonlyrest.yml.j2
-      dest: /etc/elasticsearch/readonlyrest.yml
+- name: Add readonlyrest users and copy config
+  template:
+    src: readonlyrest.yml.j2
+    dest: /etc/elasticsearch/readonlyrest.yml
+    mode: 0644
 
-  - name: Restart elasticsearch
-    service:
-      name: elasticsearch
-      state: restarted
+- name: Restart elasticsearch
+  service:
+    name: elasticsearch
+    state: restarted
 
-  - name: Restart kibana
-    service:
-      name: kibana
-      state: restarted
+- name: Restart kibana
+  service:
+    name: kibana
+    state: restarted
