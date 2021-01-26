@@ -1,4 +1,7 @@
-tenantcloud.ansible_role_readonlyrest
+
+![Lint Ansible Roles](https://github.com/tenantcloud/ansible-role-readonlyrest/workflows/Lint%20Ansible%20Roles/badge.svg)
+
+tenantcloud.readonlyrest
 =========
 
 Ansible role for install and setup ReadOnlyRest plugin. This role include in default terraform scenario for auto-deploy new server.
@@ -11,7 +14,7 @@ ELK Stack, Elastalert
 Role Variables
 --------------
 
-ror_git: https://s3.amazonaws.com/software/readonlyrest-1.18.4_es6.8.2.zip
+ror_git: https://tenantcloud.s3-us-west-2.amazonaws.com/software/readonlyrest-1.19.0_es7.5.2.zip
 Url for download readonlyrest archive from S3 bucket
 
 var.username
@@ -22,11 +25,11 @@ Dependencies
 ------------
 
   - geerlingguy.java
-  - geerlingguy.elasticsearch
-  - geerlingguy.kibana
-  - geerlingguy.logstash
-  - tenantcloud.ansible_role_elastalert
-  - tenantcloud.ansible_role_auth_elk
+  - tenantcloud.elasticsearch
+  - tenantcloud.kibana
+  - tenantcloud.logstash
+  - tenantcloud.elastalert
+  - tenantcloud.auth_elk
 
 Example Playbook
 ----------------
@@ -39,7 +42,7 @@ Example Playbook
         - {username: "${user1}",  password: "${pass1}"}
     become: yes
     roles:
-      - tenantcloud.ansible_role_readonlyrest
+      - tenantcloud.readonlyrest
 ```
 
 License

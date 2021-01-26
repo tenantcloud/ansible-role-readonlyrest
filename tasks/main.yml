@@ -1,2 +1,2 @@
 ---
-    - include: git.yml
+- include: git.yml
